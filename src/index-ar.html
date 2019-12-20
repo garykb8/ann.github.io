@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script>
+      AFRAME.registerComponent("taun-kitsu-shake", {
+        init: function() {
+          console.log("init");
+          // this.el.addEventListener("mouseenter", e => {
+          //   console.log(e);
+          // });
+          // this.el.addEventListener("animationbegin", e => {
+
+          // });
+        },
+        update: function() {
+          const self = this;
+          const entity = document.querySelector("[sound]");
+
+          self.el.addEventListener("animationbegin", e => {
+            console.log(self.el);
+            // const entity = document.querySelector("[sound]");
+            entity.components.sound.playSound();
+          });
+
+          self.el.addEventListener("animationcomplete", e => {
+            entity.components.sound.stopSound();
+          });
+        }
+      });
+      // AFRAME.registerComponent("scale-on-mouseenter", {
+      //   schema: {
+      //     to: { type: "vec3", default: "2.5 2.5 2.5" }
+      //   },
+      //   update: function() {
+      //     const data = this.data;
+      //     const el = this.el;
+      //     el.addEventListener("mouseenter", function() {
+      //       el.object3D.scale.copy(data.to);
+      //     });
+      //   }
+      // });
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="027" src="./assets/images/027.png" />
+        <img id="026" src="./assets/images/026.png" />
+        <audio
+          id="shake-sound"
+          src="./assets/sounds/jump_02.wav"
+          preload="auto"
+        ></audio>
+      </a-assets>
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+      <!-- <a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box> -->
+      <a-image
+        src="#027"
+        position="-0.928 0.482 -2.918"
+        rotation="0 0 0"
+        animation__click="property: position; from: -0.928 0.482 -2.918; to: -0.928 0.522 -2.9188; loop: 8; dur: 300; dir: alternate; easing: easeOutSine; startEvents: click "
+        sound="src: #shake-sound; autoplay: false"
+        taun-kitsu-shake
+      ></a-image>
+      <a-image
+        src="#026"
+        position="0.934 0.482 -2.918"
+        rotation="0 0 0"
+        animation__click="property: position; from: 0.934 0.482 -2.918; to: 0.934 0.522 -2.9188; loop: 8; dur: 300; dir: alternate; easing: easeOutSine; startEvents: click "
+      ></a-image>
+      <a-text
+        value="Hello, World!"
+        color="blue"
+        position="-0.6207 1.1873 -3.319"
+        text=""
+      ></a-text>
+      <!-- <a-box
+        src="#027"
+        position="0 2 -5"
+        rotation="0 45 45"
+        scale="2 2 2"
+        animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
+        scale-on-mouseenter
+      ></a-box> -->
+      <a-plane
+        position="0 0 -4"
+        rotation="-90 0 0"
+        width="4"
+        height="4"
+        color="#7BC8A4"
+      ></a-plane>
+      <!-- <a-sound src="#shake-sound" autoplay="true" position="0 2 5"></a-sound> -->
+      <!-- <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera> -->
+    </a-scene>
+  </body>
+</html>
