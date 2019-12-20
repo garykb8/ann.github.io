@@ -5,10 +5,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
-    <script src="./src/component.js?v=13"></script>
+    <script src="./src/component.js?v=17"></script>
   </head>
   <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
+    <a-scene embedded arjs="debugUIEnabled: false;">
       <!-- <a-scene> -->
       <a-assets>
         <img id="p2-001" src="./assets/images/pack2/001_.png" />
@@ -29,6 +29,8 @@
         <img id="p2-029" src="./assets/images/pack2/029.png" />
         <img id="p3-020" src="./assets/images/pack3/020.png" />
         <img id="p3-011" src="./assets/images/pack3/011.png" />
+        <img id="p1-031" src="./assets/images/pack1/031.png" />
+        <img id="p3-016" src="./assets/images/pack3/016.png" />
 
         <img id="summon-bg" src="./assets/images/Bg_Summon_Stone.png" />
         <img id="orbs-red" src="./assets/images/orbs_red.png" />
@@ -38,6 +40,7 @@
 
         <audio id="summon-sound" src="./assets/sounds/FEH_05 (Summoning).mp3" preload="auto"></audio>
         <audio id="main-sound" src="./assets/sounds/main_bgm.mp3" preload="auto"></audio>
+        <audio id="christmas-sound" src="./assets/sounds/Christmas.mp3" preload="auto"></audio>
       </a-assets>
       <!-- <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity> -->
 
@@ -69,7 +72,8 @@
           rotation="-29.999999999999996 0 0"
           scale="3 3 1"
           text__message="align: center; width: 2.44; font: assets/font/JhengHei-msdf/JhengHei-msdf.json; color: #4ab1d9; negate: false"
-          animation__enter="property: position; from: 0 11.309 -0.013; to: 0 1.82627 -0.013; delay: 13; dur: 1000"
+          animation__enter="property: position; from: 0 11.309 -0.013; to: 0 1.82627 -0.013; delay: 130; dur: 1500"
+          geometry="width: 1.730"
           text-board
         ></a-plane>
         <a-plane
@@ -84,6 +88,7 @@
         <a-plane position="0 0 0" rotation="-90 0 0" width="3" height="2.8" color="#B4A582"></a-plane>
         <a-sound id="main-bgm" src="#main-sound" loop="true" position="0 4.145 0"></a-sound>
         <a-sound id="summon-bgm" src="#summon-sound" position="0 4.145 0"></a-sound>
+        <a-sound id="christmas-bgm" src="#christmas-sound" loop="true" position="0 4.145 0"></a-sound>
 
         <!-- <a-light id="summon-light" visible="false" position="-0.101 0.887 0.415" intensity="4"></a-light> -->
       </a-marker>

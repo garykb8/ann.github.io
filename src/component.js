@@ -150,12 +150,14 @@ AFRAME.registerComponent('do-something-once-loaded', {
 
 const tanukiAction = {
   summon: '#p1-011',
-  others: ['#p2-003', '#p2-011', '#p1-021', '#p1-017', '#p1-019', '#p2-029', '#p3-011']
+  others: ['#p2-003', '#p2-011', '#p1-021', '#p1-017', '#p1-019', '#p2-029', '#p3-011'],
+  final: '#p1-031'
 };
 
 const kitsuneAction = {
   summon: '#p1-012',
-  others: ['#p2-014', '#p2-018', '#p1-016', '#p1-004', '#p1-024', '#p2-020', '#p3-020']
+  others: ['#p2-014', '#p2-018', '#p1-016', '#p1-004', '#p1-024', '#p2-020', '#p3-020'],
+  final: '#p3-016'
 };
 
 AFRAME.registerComponent('chara-tanuki', {
@@ -361,7 +363,7 @@ AFRAME.registerComponent('summon-board', {
         textBoardEl.setAttribute('animation__enter', 'dur', 4000);
         textBoardEl.setAttribute('text__message', 'value', '');
         textBoardEl.removeAttribute('animation__leave');
-        textBoardEl.setAttribute('text-board', 'scriptType', 'Tanuki & Kitsune');
+        textBoardEl.setAttribute('text-board', 'scriptType', 'End');
       }
     }
   }
@@ -369,76 +371,128 @@ AFRAME.registerComponent('summon-board', {
 
 const scriptInfo = {
   enter: [
-    // { state: 1, value: '三週年快樂' },
-    // { state: 1, value: '又度過了一年' },
-    // { state: 1, value: '除了在忙碌的工作日子中度過' },
-    // { state: 1, value: '應該還有什麼些事情豐富了這三年' },
-    // { state: 1, value: '是該時候來回顧一下' },
-    // { state: 1, value: '就用我們彼此最熟悉的方式進行吧' },
-    // { state: 1, value: '準備好了嗎' },
+    { state: 1, value: '三週年快樂' },
+    { state: 1, value: '又度過了一年' },
+    { state: 1, value: '除了在忙碌的工作日子中度過' },
+    { state: 1, value: '應該還有什麼些事情豐富了這三年' },
+    { state: 1, value: '是該時候來回顧一下' },
+    { state: 1, value: '就用我們彼此最熟悉的方式進行吧' },
+    { state: 1, value: '準備好了嗎' },
+    { state: 1, value: 'GO' },
+    { state: 0, value: '' }
+    // { state: 1, value: 'G' },
+    // { state: 1, value: 'GG' },
+    // { state: 1, value: 'GGG' },
+    // { state: 1, value: 'GGGG' },
+    // { state: 1, value: 'GGGGG' },
+    // { state: 1, value: 'GGGGGG' },
+    // { state: 1, value: 'GGGGGGG' },
     // { state: 0, value: 'GO' }
-    { state: 1, value: 'G' },
-    { state: 1, value: 'GG' },
-    { state: 1, value: 'GGG' },
-    { state: 1, value: 'GGGG' },
-    { state: 1, value: 'GGGGG' },
-    { state: 1, value: 'GGGGGG' },
-    { state: 1, value: 'GGGGGGG' },
-    { state: 0, value: 'GO' }
   ],
   Pokemon: [
-    // { state: 1, value: '認識妳的頭一年間' },
-    // { state: 1, value: '正好Pokemon Go上市' },
-    // { state: 1, value: '到處抓寶可夢成為我們生活的一部分' },
-    // { state: 1, value: '為了沒抓到卡比獸的妳' },
-    // { state: 1, value: '製作了一隻卡比獸' },
-    // { state: 1, value: '牠以為今天牠可以登場' },
-    // { state: 1, value: '並沒有' },
-    // { state: 1, value: '一次又一次的社群日' },
-    // { state: 1, value: '官方活動我們都盡可能沒錯過' },
-    // { state: 1, value: '寶可夢中心也是我們的觀光景點之一' },
-    // { state: 1, value: '每次踏進去，不花個五位數絕不罷休' },
-    // { state: 1, value: '也一起去了阿羅拉探險' },
-    // { state: 1, value: '謎擬Q成為了妳的最愛之一' },
-    // { state: 0, value: '剛發售的劍盾還等著我們去摸索呢' }
-    { state: 1, value: '1' },
-    { state: 1, value: '2' },
-    { state: 1, value: '3' },
-    { state: 1, value: '4' },
-    { state: 1, value: '5' },
-    { state: 1, value: '6' },
-    { state: 1, value: '7' },
-    { state: 1, value: '8' },
-    { state: 1, value: '9' },
-    { state: 1, value: '0' },
-    { state: 1, value: '-' },
-    { state: 1, value: '=' },
-    { state: 1, value: '2' },
-    { state: 0, value: '5' }
+    { state: 1, value: 'Pokemon' },
+    { state: 1, value: '認識妳的頭一年間' },
+    { state: 1, value: '正好Pokemon Go上市' },
+    { state: 1, value: '到處抓寶可夢成為我們生活的一部分' },
+    { state: 1, value: '為了沒抓到卡比獸的妳' },
+    { state: 1, value: '製作了一隻卡比獸' },
+    { state: 1, value: '牠以為今天牠可以登場' },
+    { state: 1, value: '並沒有' },
+    { state: 1, value: '一次又一次的社群日' },
+    { state: 1, value: '官方活動我們都盡可能沒錯過' },
+    { state: 1, value: '寶可夢中心也是我們的觀光景點之一' },
+    { state: 1, value: '每次踏進去' },
+    { state: 1, value: '不花個五位數絕不罷休' },
+    { state: 1, value: '也一起去了阿羅拉探險' },
+    { state: 1, value: '謎擬Q成為了妳的最愛之一' },
+    { state: 1, value: '剛發售的劍盾還等著我們去摸索呢' },
+    { state: 0, value: '' }
+    // { state: 1, value: '1' },
+    // { state: 1, value: '2' },
+    // { state: 1, value: '3' },
+    // { state: 1, value: '4' },
+    // { state: 1, value: '5' },
+    // { state: 1, value: '6' },
+    // { state: 1, value: '7' },
+    // { state: 1, value: '8' },
+    // { state: 1, value: '9' },
+    // { state: 1, value: '0' },
+    // { state: 1, value: '-' },
+    // { state: 1, value: '=' },
+    // { state: 1, value: '2' },
+    // { state: 0, value: '5' }
   ],
   Movie: [
-    { state: 1, value: '333' },
-    { state: 1, value: '3333' },
-    { state: 1, value: '33333' },
-    { state: 0, value: '333333' }
+    { state: 1, value: 'Movie' },
+    { state: 1, value: '第一次兩人看的電影' },
+    { state: 1, value: '如果這世界貓消失了' },
+    { state: 1, value: '這之後電影就伴隨我們約會的腳步' },
+    { state: 1, value: '透過大螢幕帶給我們不同主題的故事' },
+    { state: 1, value: '唯獨恐怖電影' },
+    { state: 1, value: '那是妳一個人享受的視覺聲光饗宴' },
+    { state: 1, value: '我不願打擾妳' },
+    { state: 1, value: '簡單說就是' },
+    { state: 1, value: '我俗辣' },
+    { state: 1, value: '而我在看電影時睡著' },
+    { state: 1, value: '似乎也成為了一種習慣' },
+    { state: 1, value: '精彩睡' },
+    { state: 1, value: '不精彩也睡' },
+    { state: 1, value: '我想也許是我愛睡' },
+    { state: 1, value: '所以電影才是我們約會的選項' },
+    { state: 0, value: '' }
   ],
   Food: [
-    { state: 1, value: '4444' },
-    { state: 1, value: '444444' },
-    { state: 1, value: '4444' },
-    { state: 0, value: '4444444' }
+    { state: 1, value: 'Food' },
+    { state: 1, value: '要吃什麼' },
+    { state: 1, value: '是我們最常出現的問句' },
+    { state: 1, value: '新埔地區也就這樣吃了三年' },
+    { state: 1, value: '想吃的也都吃了' },
+    { state: 1, value: '不想吃的也一起吃了' },
+    { state: 1, value: '說好晚餐不要吃那麼多' },
+    { state: 1, value: '卻沒有做到幾次' },
+    { state: 1, value: '下一次一定要吃少少' },
+    { state: 1, value: '那我們等等要不要去吃冰' },
+    { state: 0, value: '' }
   ],
   Game: [
-    { state: 1, value: '5566' },
-    { state: 1, value: '124' },
-    { state: 1, value: '4566' },
-    { state: 0, value: '77' }
+    { state: 1, value: 'Game' },
+    { state: 1, value: '我們在遊戲公司相遇' },
+    { state: 1, value: '雖然一開始我是掌機和家機玩家' },
+    { state: 1, value: '妳偏向電腦和手機玩家' },
+    { state: 1, value: '但這三年來' },
+    { state: 1, value: '妳擁有 PS4 和 Switch' },
+    { state: 1, value: '我也開始會在手機上課金' },
+    { state: 1, value: '每次的聖火召喚都讓我們很期待' },
+    { state: 1, value: '但帶來的總是傷害' },
+    { state: 1, value: '一起討論風花雪月的劇情和角色' },
+    { state: 1, value: '讓我感受到你對老師和王子的愛有多深' },
+    { state: 1, value: '雖然買了一堆遊戲玩不完' },
+    { state: 1, value: '但相信只要我們還有力氣' },
+    { state: 1, value: '玩遊戲這選項是永遠不會消失的' },
+    { state: 0, value: '' }
   ],
   'Tanuki & Kitsune': [
-    { state: 1, value: '5566' },
-    { state: 1, value: '124' },
-    { state: 1, value: '4566' },
-    { state: 0, value: '77' }
+    { state: 1, value: 'Tanuki & Kitsune' },
+    { state: 1, value: '一開始只是貼圖上的兩隻動物' },
+    { state: 1, value: '沒想到卻是我們日常不可或缺的配角們' },
+    { state: 1, value: '貼圖買齊了之後' },
+    { state: 1, value: '開始買週邊' },
+    { state: 1, value: '週邊不滿意就開始夾娃娃' },
+    { state: 1, value: '不知道花了多少日幣在牠們身上' },
+    { state: 1, value: '這兩位小朋友真的看不膩' },
+    { state: 1, value: '只是週邊在買下去房間就塞不下啦' },
+    { state: 0, value: '' }
+  ],
+  End: [
+    { state: 1, value: '列出的這五項' },
+    { state: 1, value: '不知道妳是否也認同呢' },
+    { state: 1, value: '明年 2020 看來又會是個忙碌的一年' },
+    { state: 1, value: '也希望是個平順的一年' },
+    { state: 1, value: '這三年來謝謝妳的陪伴' },
+    { state: 1, value: '我是亂槍打鳥人' },
+    { state: 1, value: '謝謝妳隨意試試人' },
+    { state: 1, value: '聖誕快樂' },
+    { state: 0, value: '' }
   ]
 };
 
@@ -464,6 +518,11 @@ AFRAME.registerComponent('text-board', {
         // if (!bgmEl.components.sound.isPlaying) {
         if (data.scriptType === 'enter') {
           bgmEl.components.sound.playSound();
+        } else if (data.scriptType === 'Tanuki & Kitsune') {
+          const kitsuneEl = sceneEl.querySelector('#kitsune');
+          kitsuneEl.setAttribute('src', kitsuneAction.final);
+          const tanukiEl = sceneEl.querySelector('#tanuki');
+          tanukiEl.setAttribute('src', tanukiAction.final);
         } else {
           const kitsuneEl = sceneEl.querySelector('#kitsune');
           const actionIndex = getRandomInt(0, kitsuneAction.others.length - 1);
@@ -479,42 +538,6 @@ AFRAME.registerComponent('text-board', {
     el.addEventListener('animationcomplete__enter', animationCompleteFn);
 
     el.setAttribute('text__message', 'value', data.scriptInfo[data.scriptType][data.scriptIdx].value);
-
-    // el.addEventListener('click', function(e) {
-    //   // console.log(e.detail.cursorEl);
-    //   // const mouseCursorEl = sceneEl.querySelector('#mouseCursor');
-    //   // const mouseCursorEl = sceneEl.querySelector('#marker');
-    //   // console.log(mouseCursorEl);
-    //   // const cursorElement = e && e.detail && e.detail.cursorEl;
-    //   // console.log(cursorElement);
-    //   // if (mouseCursorEl && cursorElement === mouseCursorEl) {
-    //   console.log(e);
-    //   console.log(el);
-    //   // const debugEl = sceneEl.querySelector('#debug');
-    //   // debugEl.setAttribute('value', `${data.scriptType}, ${data.scriptIdx}`);
-    //   const debugEl = sceneEl.querySelector('#debug');
-
-    //   // const intersectedElement = e && e.detail && e.detail.intersection.object.el;
-    //   // const aaEl = sceneEl.querySelector('#text-board-id');
-    //   // debugEl.setAttribute('value', data.scriptIdx);
-    //   // if (aaEl && intersectedElement === aaEl) {
-    //   const summonBgmEl = sceneEl.querySelector('#summon-bgm');
-    //   if (summonBgmEl.components.sound.isPlaying) {
-    //     summonBgmEl.components.sound.stopSound();
-    //     // summonBgmEl.setAttribute('volume', 0);
-    //   }
-    //   console.log('bgm');
-
-    //   // if (!bgmEl.components.sound.isPlaying) {
-    //   // console.log(bgmEl.components.sound);
-    //   // bgmEl.components.sound.playSound();
-    //   bgmEl.setAttribute('volume', 1);
-    //   // }
-
-    //   // el.setAttribute('text-board', 'scriptIdx', data.scriptIdx + 1);
-    //   // }
-    //   // }
-    // });
   },
   update: function(oldData) {
     const el = this.el;
@@ -531,11 +554,19 @@ AFRAME.registerComponent('text-board', {
     }
 
     if (data.scriptIdx !== oldData.scriptIdx) {
+      if (data.scriptType === 'End') {
+        bgmEl.setAttribute('volume', 0);
+        const christmasBgmEl = sceneEl.querySelector('#christmas-bgm');
+        christmasBgmEl.components.sound.playSound();
+      }
       if (data.scriptInfo[data.scriptType][data.scriptIdx] !== undefined) {
         if (data.scriptInfo[data.scriptType][data.scriptIdx].state !== 0) {
           el.setAttribute('text__message', 'value', data.scriptInfo[data.scriptType][data.scriptIdx].value);
         }
       } else {
+        if (data.scriptType === 'End') {
+          return;
+        }
         // el.setAttribute('visible', false);
         el.setAttribute('animation__leave', 'property', 'position');
         el.setAttribute(
