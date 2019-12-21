@@ -171,7 +171,7 @@ AFRAME.registerComponent('chara-tanuki', {
     const summonBgmEl = sceneEl.querySelector('#summon-bgm');
     el.addEventListener('click', function(e) {
       const textBoardAttr = textBoardIdEl.getAttribute('text-board');
-      console.log(textBoardAttr.scriptIdx);
+      // console.log(textBoardAttr.scriptIdx);
 
       if (summonBgmEl.components.sound.isPlaying) {
         summonBgmEl.components.sound.stopSound();
@@ -193,7 +193,7 @@ AFRAME.registerComponent('chara-kitsune', {
     const summonBgmEl = sceneEl.querySelector('#summon-bgm');
     el.addEventListener('click', function(e) {
       const textBoardAttr = textBoardIdEl.getAttribute('text-board');
-      console.log(textBoardAttr.scriptIdx);
+      // console.log(textBoardAttr.scriptIdx);
       if (summonBgmEl.components.sound.isPlaying) {
         summonBgmEl.components.sound.stopSound();
       }

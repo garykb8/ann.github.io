@@ -5,11 +5,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
-    <script src="./src/component.js?v=17"></script>
+    <script src="./src/component.js?v=18"></script>
   </head>
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs="debugUIEnabled: false;">
-      <!-- <a-scene> -->
+    <!-- <a-scene> -->
       <a-assets>
         <img id="p2-001" src="./assets/images/pack2/001_.png" />
         <img id="p2-004" src="./assets/images/pack2/004_.png" />
@@ -45,54 +45,54 @@
       <!-- <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity> -->
 
       <a-marker id="marker" type="pattern" preset="custom" url="./assets/pattern-marker.patt" cursor="rayOrigin: mouse">
-        <!-- <a-box position="0 0.5 0" material="color: yellow;"></a-box> -->
-        <a-image
-          id="kitsune"
-          src="#p2-004"
-          position="-0.896 11.309 1.157"
-          material=""
-          geometry=""
-          rotation="-29.999999999999996 0 0"
-          animation__enter="property: position; from: -0.896 11.309 1.157; to: -0.896 0.59045 1.157; delay: 8000; dur: 1500"
-          chara-kitsune
-        ></a-image>
-        <a-image
-          id="tanuki"
-          src="#p2-001"
-          position="0.86604 11.309 1.157"
-          material=""
-          geometry=""
-          rotation="-29.999999999999996 0 0"
-          animation__enter="property: position; from: 0.86604 11.309 1.157; to: 0.86604 0.56537 1.157; delay: 10000; dur: 1500"
-          chara-tanuki
-        ></a-image>
-        <a-plane
-          id="text-board-id"
-          position="0 11.309 -0.013"
-          rotation="-29.999999999999996 0 0"
-          scale="3 3 1"
-          text__message="align: center; width: 2.44; font: assets/font/JhengHei-msdf/JhengHei-msdf.json; color: #4ab1d9; negate: false"
-          animation__enter="property: position; from: 0 11.309 -0.013; to: 0 1.82627 -0.013; delay: 130; dur: 1500"
-          geometry="width: 1.730"
-          text-board
-        ></a-plane>
-        <a-plane
-          id="summon-board-id"
-          src="#summon-bg"
-          geometry="height: 2.4; width: 2.4"
-          position="0 1.835 -0.638"
-          rotation="-30 0 0"
-          visible="false"
-          summon-board
-        ></a-plane>
-        <a-plane position="0 0 0" rotation="-90 0 0" width="3" height="2.8" color="#B4A582"></a-plane>
-        <a-sound id="main-bgm" src="#main-sound" loop="true" position="0 4.145 0"></a-sound>
-        <a-sound id="summon-bgm" src="#summon-sound" position="0 4.145 0"></a-sound>
-        <a-sound id="christmas-bgm" src="#christmas-sound" loop="true" position="0 4.145 0"></a-sound>
+      <!-- <a-box position="0 0.5 0" material="color: yellow;"></a-box> -->
+      <a-image
+        id="kitsune"
+        src="#p2-004"
+        position="-0.896 11.309 1.157"
+        material=""
+        geometry=""
+        rotation="-29.999999999999996 0 0"
+        animation__enter="property: position; from: -0.896 11.309 1.157; to: -0.896 0.59045 1.157; delay: 8000; dur: 1500"
+        chara-kitsune
+      ></a-image>
+      <a-image
+        id="tanuki"
+        src="#p2-001"
+        position="0.86604 11.309 1.157"
+        material=""
+        geometry=""
+        rotation="-29.999999999999996 0 0"
+        animation__enter="property: position; from: 0.86604 11.309 1.157; to: 0.86604 0.56537 1.157; delay: 10000; dur: 1500"
+        chara-tanuki
+      ></a-image>
+      <a-plane
+        id="text-board-id"
+        position="0 11.309 -0.013"
+        rotation="-29.999999999999996 0 0"
+        scale="3 3 1"
+        text__message="align: center; width: 2.44; font: assets/font/JhengHei-msdf/JhengHei-msdf.json; color: #4ab1d9; negate: false"
+        animation__enter="property: position; from: 0 11.309 -0.013; to: 0 1.82627 -0.013; delay: 130; dur: 1500"
+        geometry="width: 1.730"
+        text-board
+      ></a-plane>
+      <a-plane
+        id="summon-board-id"
+        src="#summon-bg"
+        geometry="height: 2.4; width: 2.4"
+        position="0 1.835 -0.638"
+        rotation="-30 0 0"
+        visible="false"
+        summon-board
+      ></a-plane>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="3" height="2.8" color="#B4A582"></a-plane>
+      <a-sound id="main-bgm" src="#main-sound" loop="true" position="0 4.145 3.05721" sound=""></a-sound>
+      <a-sound id="summon-bgm" src="#summon-sound" position="0 4.145 3.05721"></a-sound>
+      <a-sound id="christmas-bgm" src="#christmas-sound" loop="true" position="0 4.145 3.05721"></a-sound>
 
-        <!-- <a-light id="summon-light" visible="false" position="-0.101 0.887 0.415" intensity="4"></a-light> -->
+      <!-- <a-light id="summon-light" visible="false" position="-0.101 0.887 0.415" intensity="4"></a-light> -->
       </a-marker>
       <a-entity camera></a-entity>
-    </a-scene>
+    <!-- </a-scene> -->
   </body>
 </html>
